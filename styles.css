@@ -14,10 +14,8 @@ body {
 }
 
 #main_wrapper {
-/*
     width: calc(3*20vh);
     height: calc(5*20vh);
-*/
 /*    max-width: 370px;*/
 /*    background-color: rgb(62, 62, 62);*/
     
@@ -26,6 +24,7 @@ body {
 /*    background-color: aqua;*/
 }
 
+/*
 .main_wide {
     width: calc(3*20vh);
     height: calc(5*20vh);
@@ -35,6 +34,7 @@ body {
     width: calc(3*43vw);
     height: calc(5*43vw);
 }
+*/
 
 .button_wrapper {
     width: 100%;
@@ -43,16 +43,16 @@ body {
 }
 
 #main_reg_btn {
-    box-shadow: 0 0 5vh 1vh rgba(0, 0, 0, 0.5);    
-    font-size: 4.5vh;
-    border-radius: 3vh;
-    padding: 3% 6%;
+    box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.5);    
+    font-size: 20pt;
+    border-radius: 15px;
+    padding: 10px 20px;
     transition: all 0.3s ease-in-out;
 /*    filter: blur(5px);*/
 }
 
 #login_btn {
-    font-size: 5.5vh;
+    font-size: 28pt;
 }
 
 #login_btn::before {
@@ -75,40 +75,40 @@ body {
 .form {
     background-color: #e8e8e8;
     
-    width: 91%;
-    height: 30%;
-    border-radius: 4vh;
-    margin: 0px auto 7%;
-    padding-top: 9%;
+    width: 325px;
+    height: 181px;
+    border-radius: 15px;
+    margin: 0px auto 24px;
+    padding-top: 32px;
 
 }
 
 .form input {
     display: block;
-    margin: 0 auto 6%;
-    width: 75%;
-    height: 24%;
-    border-radius: 2vh;
+    margin: 0 auto 18px;
+    width: 239px;
+    height: 41px;
+    border-radius: 10px;
     border-width: 0;
-    box-shadow: 0 0 3vh -2vh rgba(0, 0, 0, 0.5);
-    padding: 1% 5%;
+    box-shadow: 0 0 18px -12px rgba(0, 0, 0, 0.5);
+    padding: 3.25px 16.25px;
     font-family: "Franklin Gothic Book";
-    font-size: 5vh;
+    font-size: 21pt;
     color: rgba(47, 47, 47, 0.5);
     transition: all 0.3s ease-in-out;
 }
 
 .form input:last-of-type {
-    margin: 0 auto 4%;
+    margin: 0 auto 13px;
 }
 
 .form input:hover,.form input:focus {
-    box-shadow: 0 0 4vh -2vh rgb(0, 0, 0);
+    box-shadow: 0 0 24px -12px rgb(0, 0, 0);
     transform: scale(1.015,1.015);
 }
 
 #main_reg_btn:hover {
-    box-shadow: 0 0 5vh 1vh rgb(0, 0, 0);
+    box-shadow: 0 0 30px 6px rgb(0, 0, 0);
     transform: scale(1.015,1.015);
 }
 
@@ -191,11 +191,4 @@ body {
 .word_menu svg {
     width: 2em;
 /*    height: 1em;*/
-}
-
-/*test*/
-
-.logo {
-    width: 100%;
-    height: 160px;
 }

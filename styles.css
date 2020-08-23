@@ -1,0 +1,194 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #2f2f2f;
+}
+
+.logo {
+/*    background-image: url(logo.png);*/
+    max-width: 100%;
+    margin: 14% 0 4%;
+}
+
+#main_wrapper {
+/*
+    width: calc(3*20vh);
+    height: calc(5*20vh);
+*/
+/*    max-width: 370px;*/
+/*    background-color: rgb(62, 62, 62);*/
+    
+    margin: 0 auto 0;
+/*    width: 300px;*/
+/*    background-color: aqua;*/
+}
+
+.main_wide {
+    width: calc(3*20vh);
+    height: calc(5*20vh);
+}
+
+.main_long {
+    width: calc(3*43vw);
+    height: calc(5*43vw);
+}
+
+.button_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#main_reg_btn {
+    box-shadow: 0 0 5vh 1vh rgba(0, 0, 0, 0.5);    
+    font-size: 4.5vh;
+    border-radius: 3vh;
+    padding: 3% 6%;
+    transition: all 0.3s ease-in-out;
+/*    filter: blur(5px);*/
+}
+
+#login_btn {
+    font-size: 5.5vh;
+}
+
+#login_btn::before {
+    display: inline-block;
+    content: "";
+    background-image: url(bootstrap-icons-1.0.0-alpha5/box-arrow-in-right.svg);
+    background-repeat: no-repeat;
+    height: 18px;
+    width: 23px;
+    transform: scale(2,2);
+}
+
+.reg_btn {
+    color: #2f2f2f;
+    background-color: #e8e8e8;
+    font-family: "Franklin Gothic Demi";
+    border-width: 0;
+}
+
+.form {
+    background-color: #e8e8e8;
+    
+    width: 91%;
+    height: 30%;
+    border-radius: 4vh;
+    margin: 0px auto 7%;
+    padding-top: 9%;
+
+}
+
+.form input {
+    display: block;
+    margin: 0 auto 6%;
+    width: 75%;
+    height: 24%;
+    border-radius: 2vh;
+    border-width: 0;
+    box-shadow: 0 0 3vh -2vh rgba(0, 0, 0, 0.5);
+    padding: 1% 5%;
+    font-family: "Franklin Gothic Book";
+    font-size: 5vh;
+    color: rgba(47, 47, 47, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.form input:last-of-type {
+    margin: 0 auto 4%;
+}
+
+.form input:hover,.form input:focus {
+    box-shadow: 0 0 4vh -2vh rgb(0, 0, 0);
+    transform: scale(1.015,1.015);
+}
+
+#main_reg_btn:hover {
+    box-shadow: 0 0 5vh 1vh rgb(0, 0, 0);
+    transform: scale(1.015,1.015);
+}
+
+/**** MAIN PAGE ****/
+
+.header_panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5%;
+    margin-bottom: 6%;
+}
+
+.panel_burger {
+    width: 32px;
+    height: 22px;
+/*    background-color: #e8e8e8;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 4%;;
+}
+
+.panel_burger span {
+    display: inline-block;
+    width: 100%;
+    height: 20%;
+    background-color: #e8e8e8;
+    border-radius: 1em;
+}
+
+.panel_nav {
+    width: 95%;
+    height: 35px;
+    background-color: #e8e8e8;
+    border-radius: 15px;
+}
+
+.word {
+    color: #e8e8e8;
+    display: flex;
+    justify-content: space-around;
+    margin: 3%;
+/*    background-color: rgba(127, 255, 212, 0.19);*/
+    font-family: "Franklin Gothic Demi";
+    position: relative;
+}
+
+.word::after {
+    content: '';
+    display: block;
+    background-color: rgba(232, 232, 232, 0.25);
+    width: 100%;
+    height: 6%;
+    position: absolute;
+    top: 110%;
+}
+
+.word_number {
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 1px;
+    margin-right: 5%;
+}
+
+.word_part {
+    flex-grow: 4;
+}
+
+.word_part-translation {
+    font-family: "Franklin Gothic Book";
+    color: rgba(232, 232, 232, 0.75);
+}
+
+.word_menu {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.word_menu svg {
+    width: 2em;
+/*    height: 1em;*/
+}

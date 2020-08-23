@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Registration screen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div id="main_wrapper">
+       <img src="logo.png" alt="" class="logo">
+       <div class="form">
+           <input type="text" placeholder="Логин">
+           <input type="password" placeholder="Пароль">
+           <div class="button_wrapper">
+               <button class="reg_btn" id="login_btn">Войти</button>
+           </div>
+       </div>
+       <div class="button_wrapper">
+           <button id="main_reg_btn" class="reg_btn">Зарегистрироваться</button>
+       </div>
+   </div>
+   
+   <script>
+       if (window.screen.width/window.screen.height < 0.6) {
+           console.log("less");
+           document.getElementById("main_wrapper").classList.remove("main_wide");
+           document.getElementById("main_wrapper").classList.add("main_long");
+       } else {
+           console.log("more");
+           document.getElementById("main_wrapper").classList.remove("main_long");
+           document.getElementById("main_wrapper").classList.add("main_wide");
+       };
+   </script>
+</body>
+</html>

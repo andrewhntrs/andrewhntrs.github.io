@@ -192,3 +192,10 @@ body {
     width: 2em;
 /*    height: 1em;*/
 }
+
+/*test*/
+
+.logo {
+    width: 100%;
+    height: 160px;
+}

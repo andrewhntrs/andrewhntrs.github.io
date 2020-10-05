@@ -1,10 +1,54 @@
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
+}
+
+::selection {
+    background: red;
+    color: black;
 }
 
 body {
     background-color: #2f2f2f;
+/*    max-width: 615px;*/
+}
+
+button, select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+}
+
+.hidden {
+    display: none!important;
+}
+
+.notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    font-family: "Franklin Gothic Book";
+    width: 100%;
+    height: 25px;
+    bottom: -25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.notification_active {
+    bottom: 0;
+}
+
+.notification_negative {
+    background-color: red;
+}
+
+.notification_positive {
+    background-color: green;
+    color: white;
 }
 
 .logo {
@@ -14,17 +58,18 @@ body {
 }
 
 #main_wrapper {
+/*
     width: calc(3*20vh);
     height: calc(5*20vh);
+*/
 /*    max-width: 370px;*/
 /*    background-color: rgb(62, 62, 62);*/
     
     margin: 0 auto 0;
-/*    width: 300px;*/
-/*    background-color: aqua;*/
+/*    width: 320px;*/
+/*    background-color: #1f1f1f;*/
 }
 
-/*
 .main_wide {
     width: calc(3*20vh);
     height: calc(5*20vh);
@@ -34,7 +79,6 @@ body {
     width: calc(3*43vw);
     height: calc(5*43vw);
 }
-*/
 
 .button_wrapper {
     width: 100%;
@@ -43,16 +87,16 @@ body {
 }
 
 #main_reg_btn {
-    box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.5);    
-    font-size: 20pt;
-    border-radius: 15px;
-    padding: 10px 20px;
+    box-shadow: 0 0 5vh 1vh rgba(0, 0, 0, 0.5);    
+    font-size: 4.5vh;
+    border-radius: 3vh;
+    padding: 3% 6%;
     transition: all 0.3s ease-in-out;
 /*    filter: blur(5px);*/
 }
 
 #login_btn {
-    font-size: 28pt;
+    font-size: 5.5vh;
 }
 
 #login_btn::before {
@@ -75,61 +119,73 @@ body {
 .form {
     background-color: #e8e8e8;
     
-    width: 310px;
-    height: 181px;
-    border-radius: 15px;
-    margin: 0px auto 24px;
-    padding-top: 32px;
+    width: 91%;
+    height: 30%;
+    border-radius: 4vh;
+    margin: 0px auto 7%;
+    padding-top: 9%;
 
 }
 
 .form input {
     display: block;
-    margin: 0 auto 18px;
-    width: 239px;
-    height: 41px;
-    border-radius: 10px;
+    margin: 0 auto 6%;
+    width: 75%;
+    height: 24%;
+    border-radius: 2vh;
     border-width: 0;
-    box-shadow: 0 0 18px -12px rgba(0, 0, 0, 0.5);
-    padding: 3.25px 16.25px;
+    box-shadow: 0 0 3vh -2vh rgba(0, 0, 0, 0.5);
+    padding: 1% 5%;
     font-family: "Franklin Gothic Book";
-    font-size: 21pt;
+    font-size: 5vh;
     color: rgba(47, 47, 47, 0.5);
     transition: all 0.3s ease-in-out;
 }
 
 .form input:last-of-type {
-    margin: 0 auto 13px;
+    margin: 0 auto 4%;
 }
 
 .form input:hover,.form input:focus {
-    box-shadow: 0 0 24px -12px rgb(0, 0, 0);
+    box-shadow: 0 0 4vh -2vh rgb(0, 0, 0);
     transform: scale(1.015,1.015);
 }
 
 #main_reg_btn:hover {
-    box-shadow: 0 0 30px 6px rgb(0, 0, 0);
+    box-shadow: 0 0 5vh 1vh rgb(0, 0, 0);
     transform: scale(1.015,1.015);
 }
 
 /**** MAIN PAGE ****/
 
+.topFixedHolder {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #2f2f2f;
+/*    background-color: transparent;*/
+    z-index: 1;
+}
+
 .header_panel {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 5%;
-    margin-bottom: 6%;
+    margin: 15px 15px 20px;
+/*    position: fixed;*/
+    width: calc(100% - 30px);
+/*    top: 0;*/
 }
 
 .panel_burger {
     width: 32px;
-    height: 22px;
+    height: 35px;
 /*    background-color: #e8e8e8;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-right: 4%;;
+    margin-right: 15px;
+    padding: 5px 0;
 }
 
 .panel_burger span {
@@ -137,24 +193,49 @@ body {
     width: 100%;
     height: 20%;
     background-color: #e8e8e8;
-    border-radius: 1em;
+    border-radius: 2px;
 }
 
-.panel_nav {
+.panelNav {
     width: 95%;
     height: 35px;
     background-color: #e8e8e8;
     border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panelNav__currLocation {
+    font-family: "Roboto";
+    font-size: 16pt;
+    margin-left: 12px;
+    flex: 1;
+    text-align: center;
+}
+
+.panelNav__expandButton {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.words {
+    margin-top: 65px;
+}
+
+.words_selection {
+    margin-top: 110px;
 }
 
 .word {
     color: #e8e8e8;
     display: flex;
-    justify-content: space-around;
-    margin: 3%;
+    justify-content: space-between;
+    margin: 12px 12px;
 /*    background-color: rgba(127, 255, 212, 0.19);*/
     font-family: "Franklin Gothic Demi";
     position: relative;
+/*    z-index: -1;*/
 }
 
 .word::after {
@@ -162,16 +243,129 @@ body {
     display: block;
     background-color: rgba(232, 232, 232, 0.25);
     width: 100%;
-    height: 6%;
+    height: 2px;
     position: absolute;
-    top: 110%;
+    top: 42px;
+/*    left: calc(5% / 2);*/
+}
+
+.word:last-of-type::after {
+    display: none;
+}
+
+.word_selected {
+/*    background-color: #e8e8e8;*/
+    color: #2f2f2f;
+/*    border-radius: 10px;*/
+    position: relative;
+}
+
+.word_selected::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 135%;
+    top: -6px;
+    background-color: #e8e8e8;
+/*    border-radius: 13px;*/
+    z-index: -1;
+}
+
+.word_selected::after, .word_selected_prev::after {
+    display: none;
+}
+
+.word_selected .word_part-translation {
+    color: #6e6e6e;
+}
+
+.word_contextMenu {
+    position: absolute;
+    width: 100%;
+/*    height: 100px;*/
+    top: -5px;
+    background-color: #e8e8e8;
+    border-radius: 13px;
+    padding: 56px 0 0 0;
+    z-index: 1;
+    padding-bottom: 10px
+}
+
+.word_contextMenu::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background-color: #5d5d5d;
+    height: 2px;
+    top: 47px;
+}
+
+.word_contextMenu button {
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.word_contextMenu button:last-of-type {
+    margin-bottom: 0;
+}
+
+.word_contextMenu button img {
+    width: 32px;
+/*    float: left;*/
+    margin: 0 25px 0 15px;
+}
+
+.word_contextMenu button div {
+/*    height: 100%;*/
+    padding-top: 3pt;
+    font-family: "Roboto";
+    font-size: 15pt;
+}
+
+.word_contexted {
+    z-index: 2;
+    color: #2f2f2f!important;
+    position: relative;
+}
+
+.word_contextedTransl {
+    z-index: 2;
+    color: #6e6e6e!important;
+    position: relative;
+}
+
+.selected_panel {
+/*    position: fixed;*/
+    width: calc(100% - 30px);
+/*    height: 100px;*/
+/*    background-color: aqua;*/
+    margin: 0 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+/*    top: 70px;*/
+}
+
+.selected_panel button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+}
+
+.selected_panel button img {
+    transform: scale(2);
+    color: white;
+    filter: invert();
 }
 
 .word_number {
-    flex-grow: 1;
     text-align: center;
     margin-top: 1px;
-    margin-right: 5%;
+    margin-right: 15px;
+    margin-left: 12px;
 }
 
 .word_part {
@@ -184,18 +378,494 @@ body {
 }
 
 .word_menu {
-    flex-grow: 1;
     text-align: right;
 }
 
 .word_menu svg {
     width: 2em;
-/*    height: 1em;*/
+    margin-top: 2px;
+    pointer-events: none;
 }
 
-/*test*/
-
-.logo {
+.menu {
+    background-color: #e8e8e8;
+/*    background-color: #ff0000;*/
     width: 100%;
-    height: 160px;
+/*    height: 300px;*/
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.8);
+    font-family: "Franklin Gothic Demi";
+    font-size: 24px;
+/*    z-index: 1;*/
+    display: none;
+}
+
+.menu div {
+    display: flex;
+    align-items: center;
+    margin: 15px 14px;
+}
+
+.menu div img {
+    width: 32px;
+}
+
+.menu__closeIcon {
+    width: 64px!important;
+}
+
+.menu div span {
+    margin-left: 16px;
+}
+
+.menu__close {
+    height: 62px;
+    margin: 0!important;
+}
+
+.words {
+/*    filter: blur(5px);*/
+}
+
+.modalAdd, .modalShare {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+/*    filter: blur(10px);*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    
+/*    display: none;*/
+}
+
+.modalAdd__panel, .modalShare__panel {
+    background-color: #e8e8e8;
+    
+    width: 290px;
+/*    height: 416px;*/
+    border-radius: 15px;
+    margin: 0 auto 0;
+/*    padding: 10px;*/
+    display: flex;
+/*    justify-content: space-between;*/
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.modalAdd__tabs {
+    font-family: "Roboto";
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    font-size: 14pt;
+/*    text-align: center;*/
+/*    margin: -14px 0 20px;*/
+    padding: 0 5px;
+    margin-bottom: 41px;
+}
+
+.modalAdd__tabs::after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 1px;
+    background-color: #2f2f2f;
+    bottom: -5px;
+}
+
+.modalAdd__tabs li {
+    list-style-type: none;
+    position: relative;
+}
+
+.modalAdd__tab_selected::after {
+    content: '';
+    position: absolute;
+    width: 115%;
+    height: 3px;
+    background-color: #2f2f2f;
+    bottom: -6px;
+    left: calc(15% / -2);
+}
+
+.modalAdd__panel>input {
+/*    display: block;*/
+    margin: 0 auto 10px;
+    width: 89%;
+    height: 40px;
+    border-radius: 10px;
+    border-width: 0;
+    box-shadow: 0 0 18px -12px rgba(0, 0, 0, 0.5);
+    padding: 3.25px 16.25px;
+    font-family: "Franklin Gothic Book";
+    font-size: 21pt;
+    color: rgba(47, 47, 47, 0.5);
+/*    transition: all 0.3s ease-in-out;*/
+}
+
+.modalAdd__label {
+    font-family: "Roboto";
+    font-size: 14pt;
+    width: 80%;
+    text-align: left;
+    margin-bottom: 3px;
+}
+
+#modalAdd__select {
+    background-color: white;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 15pt;
+    line-height: 40px;
+    color: #2f2f2f;
+    box-shadow: 0 0 18px -12px rgba(0, 0, 0, 0.5);
+    height: 40px;
+    width: 240px;
+    border-radius: 10px;
+    border-style: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.modalAdd__selectWrapper {
+    position: relative;
+}
+
+.modalAdd__selectWrapper::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background-image: url(bootstrap-icons-1.0.0-alpha5/caret-down-fill.svg);
+    top: calc(50% - 7px);
+    right: 11px;
+    transform: scale(1.5);
+    pointer-events: none;
+}
+
+.modalAdd__confirm {
+    background-color: #2f2f2f;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 15pt;
+    line-height: 40px;
+    color: white;
+    box-shadow: 0 0 18px -12px rgba(0, 0, 0, 0.5);
+
+/*
+    display: flex;
+    align-items: center;
+    justify-content: center;
+*/
+    margin-top: 10px;
+    height: 40px;
+    width: 240px;
+    border-radius: 10px;
+}
+
+.modalAdd__check {
+/*    width: 100%;*/
+    font-family: "Roboto";
+    font-size: 14pt;
+    color: #2f2f2f;
+    margin-top: 17px;
+    margin-bottom: 8px;
+}
+
+.modalAdd__check>input {
+    margin-right: 15px;
+}
+
+#modalAdd__checkbox + label::before {
+    content: '';
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    margin: 0 10px 0 0;
+    background-color: #e8e8e8;
+    background-repeat: no-repeat;
+    border: 2px solid #2f2f2f;
+    border-radius: 5px;
+    vertical-align: sub;
+}
+
+#modalAdd__checkbox:checked + label::before {
+    background-color: #2f2f2f;
+    box-shadow: inset 0px 0px 0 2px #e8e8e8;
+}
+
+.modalShare__panel {
+    font-family: 'Roboto';
+    font-size: 14pt;
+    position: relative;
+}
+
+.modalShare__type, .modalShare__name {
+    width: 100%;
+    text-align: left;
+    margin-left: 60px;
+}
+
+.modalShare__type {
+/*    margin-bottom: 10px;*/
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.modalShare__name {
+    font-size: 23pt;
+    margin-bottom: 10px;
+    color: #2f2f2f;
+}
+
+.modalShare__qr {
+    width: 230px;
+    margin-bottom: 10px;
+}
+
+.modalShare__link {
+    text-decoration: none;
+    margin-bottom: 20px;
+    word-break: break-all;
+    width: 230px;
+    color: #2f2f2f;
+}
+
+.modalShare__link img {
+    position: relative;
+    top: 2px;
+}
+
+.modalShare__button {
+    position: absolute;
+    background-color: #2f2f2f;
+    width: 230px;
+    height: 40px;
+    border-radius: 15px;
+    color: #e8e8e8;
+    font-family: 'Roboto';
+    font-size: 14pt;
+    bottom: -20px;
+    box-shadow: 0 0 24px -12px rgb(0, 0, 0);
+}
+
+/*****BURGER******/
+
+.mainMenu {
+    width: calc(100% - 24px);
+/*    height: 100px;*/
+    background-color: #e8e8e8;
+    border-radius: 15px;
+    position: fixed;
+    top: 15px;
+    left: 12px;
+    z-index: 2;
+    padding: 10px;
+}
+
+.mainMenu button {
+    font-size: 14pt;
+    font-family: "Roboto";
+    margin-bottom: 20px;
+    margin-left: 2px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.mainMenu button:last-of-type {
+    margin-bottom: 0;
+}
+
+.mainMenu img {
+    width: 30px;
+    margin-right: 15px;
+}
+
+.mainMenu select {
+    font-size: 14pt;
+    font-family: "Roboto";
+    margin-left: -4px;
+}
+
+/*****NAVIGATION*****/
+
+.mainNav {
+    position: fixed;
+    width: calc(100% - 24px);
+/*    height: 100px;*/
+    background-color: #e8e8e8;
+    top: 15px;
+    left: 12px;
+    z-index: 2;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.mainNav__top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-size: 14pt;
+}
+
+.mainNav__top input {
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    z-index: 4;
+    height: 35px;
+    padding-left: 10px;
+    
+    font-family: 'Roboto';
+    font-size: 14pt;
+}
+
+.mainNav__top button {
+/*    height: 25px;*/
+    width: 25px;
+    margin-left: 10px;
+/*
+    background-color: #c1c1c1;
+    transform: scaleX(2);
+    border-radius: 5px;
+*/
+}
+
+.mainNav__navTree {
+    margin-left: 10px;
+    list-style-type: none;
+}
+
+.mainNav__navTree, .mainNav__navTree ul {
+/*    list-style-type: none;*/
+    font-family: 'Roboto';
+    font-size: 14pt;
+}
+
+.mainNav__navTree li {
+    margin: 10px 0;    
+}
+
+.mainNav__navTree ul {
+    margin-left: 20px;
+}
+
+.mainNav__navTree ul li {
+    position: relative;
+}
+
+.mainNav__navTree ul li::before {
+    content: '';
+    background-color: black;
+    width: 2px;
+    height: 26px;
+    position: absolute;
+    top: -17px;
+    left: -14px;
+}
+
+.mainNav__expandBtn {
+/*    width: 24px;*/
+/*    margin-left: 10px;*/
+    transform: rotate(180deg) scale(1.75);
+}
+
+/*****LANGS AND FOLDERS*****/
+
+.langs, .folders {
+    margin-top: 65px;
+}
+
+.langs_selection, .folder_selection {
+    margin-top: 110px;
+}
+
+.lang, .folder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px;
+    font-family: "Roboto";
+    background-color: #e8e8e8;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.lang__leftside, .folder__leftside {
+    padding-left: 10px;
+}
+
+.lang__name, .folder__name {
+    display: block;
+    font-size: 16pt;
+    margin-bottom: 5px;
+}
+
+.lang__counter, .folder__counter {
+    display: inline-block;
+    background-color: white;
+    color: #acacac;
+    border-radius: 10px;
+    padding: 3px 4px;
+    margin-left: -3px;
+    margin-bottom: 5px;
+}
+
+.folder__description {
+    margin: 0 0 9px 0;
+    display: inline-block;
+}
+
+/*****NEW EMPTY*****/
+
+.possibilities {
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+}
+
+.possibilities button {
+    width: 180px;
+    height: 66px;
+    text-align: left;
+    color: rgba(232, 232, 232, 0.5);
+    margin-bottom: 35px;
+    font-size: 14pt;
+    font-family: "Roboto";
+/*    display: flex;*/
+/*    justify-content: center;*/
+    
+/*    background-color: #8d8d8d;*/
+}
+
+.possibilities div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.possibilities img {
+/*    transform: scale(4.1);*/
+    width: 66px;
+/*    background-color: white;*/
+    float: left;
+    margin-right: 20px;
+    filter: invert() opacity(30%);
 }

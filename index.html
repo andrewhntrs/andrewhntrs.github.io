@@ -708,6 +708,7 @@ document.getElementsByClassName("word")[1].addEventListener("click", function() 
 });
 
 document.addEventListener("mouseup", function(event) {
+    alert("mouseup");
     if (smtgOpened === 1) {
         console.log(event.target);
         var opened = document.querySelector(".opened");
@@ -725,6 +726,7 @@ document.addEventListener("mouseup", function(event) {
 }, false);
 
 document.addEventListener("click", function(event) {
+    alert("context");
     if (event.target.classList.contains("word_menu")) {
         var parent = event.target.parentNode;
         

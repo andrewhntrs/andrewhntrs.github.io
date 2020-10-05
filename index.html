@@ -3,34 +3,620 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Registration screen</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <div id="main_wrapper">
-       <img src="logo.png" alt="" class="logo">
-       <div class="form">
-           <input type="text" placeholder="Логин">
-           <input type="password" placeholder="Пароль">
-           <div class="button_wrapper">
-               <button class="reg_btn" id="login_btn">Войти</button>
+       <div class="notification notification_positive">
+           <div class="notification__icon"></div>
+           <div class="notification__text">Выполнено</div>
+       </div>
+       <div class="mainMenu hidden">
+           <button id="mainMenu_close"><img src="bootstrap-icons-1.0.0-alpha5/x-circle.svg" alt=""></button>
+           <button><img src="bootstrap-icons-1.0.0-alpha5/filter-circle-fill.svg" alt=""><select name="" id=""><option value="">По добавлению</option></select></button>
+           <button id="mainMenu_add"><img src="bootstrap-icons-1.0.0-alpha5/plus-circle-fill.svg" alt=""><div>Добавить</div></button>
+           <button><img src="bootstrap-icons-1.0.0-alpha5/person-circle.svg" alt=""><div>Профиль</div></button>
+           <button><img src="bootstrap-icons-1.0.0-alpha5/box-arrow-right.svg" alt=""><div>Выйти</div></button>
+       </div>
+       <nav class="mainNav hidden">
+           <div class="mainNav__top">
+<!--
+               <button>
+                   <img src="bootstrap-icons-1.0.0-alpha5/x-circle.svg" alt="">
+               </button>
+-->
+               <input type="text"  placeholder="Поиск">
+               <button id="mainNav__close">
+                   <img class="mainNav__expandBtn" src="bootstrap-icons-1.0.0-alpha5/caret-down-fill.svg" alt="">
+               </button>
+               <div class="mainNav__searchRes"></div>
+           </div>
+           <ul class="mainNav__navTree">
+               <li>
+                   Избранное
+                   <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+               </li>
+               <li>
+                   Японский
+                   <ul>
+                       <li>Разговорный</li>
+                   </ul>
+               </li>
+               <li>
+                   Английский
+                   <ul>
+                       <li>Технический</li>
+                       <li>Деловой</li>
+                   </ul>
+               </li>
+           </ul>
+       </nav>
+       <div class="modalAdd hidden modal">
+           <div class="modalAdd__panel">
+               <ul class="modalAdd__tabs">
+                   <li>Язык</li>
+                   <li class="modalAdd__tab_selected">Слово</li>
+                   <li>Словарь</li>
+               </ul>
+               <span class="modalAdd__label">Слово</span>
+               <input type="text" class="modalAdd__word">
+               <span class="modalAdd__label">Перевод</span>
+               <input type="text" class="modalAdd__transl">
+               <div class="modalAdd__selectWrapper">
+                   <select name="" id="modalAdd__select">
+                       <option value="">Технический</option>
+                       <option value="">2</option>
+                       <option value="">3</option>
+                   </select>
+               </div>
+               <div class="modalAdd__confirm">Добавить</div>
+               <span class="modalAdd__check">
+                   <input id="modalAdd__checkbox" type="checkbox" hidden>
+                   <label for="modalAdd__checkbox">Добавить несколько</label>
+               </span>
            </div>
        </div>
-       <div class="button_wrapper">
-           <button id="main_reg_btn" class="reg_btn">Зарегистрироваться</button>
+       <div class="modalShare hidden modal">
+           <div class="modalShare__panel">
+               <div class="modalShare__type">
+                   словарь
+               </div>
+               <div class="modalShare__name">
+                   Технический
+               </div>
+               <img src="qr.jpg" alt="" class="modalShare__qr">        
+               <a class="modalShare__link" href="sadasdasdadasdadssadasd">
+                   asdasdas/ada21sdas5dsad57asd4asdytasd76
+                   <img src="bootstrap-icons-1.0.0-alpha5/files.svg" alt="">
+               </a>
+               <button class="modalShare__button">
+                   Удалить ссылку
+               </button>
+           </div>
+       </div>
+       <div class="topFixedHolder">
+           <div class="header_panel">
+               <div class="panel_burger">
+                   <span></span>
+                   <span></span>
+                   <span></span>
+               </div>
+               <div class="panelNav">
+                   <span class="panelNav__currLocation">
+                       Технический
+                   </span>
+                   <img class="panelNav__expandButton" src="bootstrap-icons-1.0.0-alpha5/caret-down-fill.svg" alt="">
+               </div>
+               <div class="menu">
+                   <div class="menu__close">
+                       <img class="menu__closeIcon" src="bootstrap-icons-1.0.0-alpha5/x.svg" alt="">
+                   </div>
+                   <div class="menu__sort">
+                       <img src="bootstrap-icons-1.0.0-alpha5/filter-circle-fill.svg" alt="">
+                       <span>По добавлению</span>
+                   </div>
+                   <div class="menu__add">
+                       <img src="bootstrap-icons-1.0.0-alpha5/plus-circle-fill.svg" alt="">
+                       <span>Добавить</span>
+                   </div>
+                   <div class="menu__profile">
+                       <img src="bootstrap-icons-1.0.0-alpha5/person-circle.svg" alt="">
+                       <span>Профиль</span>
+                   </div>
+                   <div class="menu__logout">
+                       <img src="bootstrap-icons-1.0.0-alpha5/box-arrow-right.svg" alt="">
+                       <span>Выйти</span>
+                   </div>
+               </div>
+           </div>
+           <div class="selected_panel hidden">
+               <button class="selected_panel_button1"><img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt=""></button>
+               <button class="selected_panel_button2"><img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt=""></button>
+               <button class="selected_panel_button3"><img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt=""></button>
+               <button class="selected_panel_button4"><img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt=""></button>
+               <button class="selected_panel_button5"><img src="bootstrap-icons-1.0.0-alpha5/x-circle.svg" alt=""></button>
+           </div>
+       </div>
+       <div class="words words_selection1">
+           <div class="word">
+               <span class="word_number">1</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">2</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">3</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">4</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">5</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">6</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">7</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">8</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">9</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">10</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">11</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">12</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">13</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
+           <div class="word">
+               <span class="word_number">14</span>
+               <div class="word_part">
+                   <div class="word_part_word">Translation</div>
+                   <div class="word_part-translation">Перевод</div>
+               </div>
+               <div class="word_menu">
+                <svg viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+               </div>
+               <div class="word_contextMenu hidden">
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/star.svg" alt="">
+                       <div>Избранное</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/pencil.svg" alt="">
+                       <div>Редактировать</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/share-fill.svg" alt="">
+                       <div>Поделиться</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/folder-symlink.svg" alt="">
+                       <div>Переместить</div>
+                   </button>
+                   <button>
+                       <img src="bootstrap-icons-1.0.0-alpha5/trash-fill.svg" alt="">
+                       <div>Удалить</div>
+                   </button>
+               </div>
+           </div>
        </div>
    </div>
-   
-   <script>
-       if (window.screen.width/window.screen.height < 0.6) {
-           console.log("less");
-           document.getElementById("main_wrapper").classList.remove("main_wide");
-           document.getElementById("main_wrapper").classList.add("main_long");
-       } else {
-           console.log("more");
-           document.getElementById("main_wrapper").classList.remove("main_long");
-           document.getElementById("main_wrapper").classList.add("main_wide");
-       };
-   </script>
+   <script src="frontend.js" type="application/javascript"></script>
 </body>
 </html>

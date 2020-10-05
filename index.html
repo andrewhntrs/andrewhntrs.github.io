@@ -707,7 +707,7 @@ document.getElementsByClassName("word")[1].addEventListener("click", function() 
     this.previousElementSibling.classList.toggle("word_selected_prev");
 });
 
-window.addEventListener("mouseup", function(event) {
+document.addEventListener("mouseup", function(event) {
     if (smtgOpened === 1) {
         console.log(event.target);
         var opened = document.querySelector(".opened");
@@ -722,9 +722,9 @@ window.addEventListener("mouseup", function(event) {
             };
         };
     };
-});
+}, false);
 
-window.addEventListener("click", function(event) {
+document.addEventListener("click", function(event) {
     if (event.target.classList.contains("word_menu")) {
         var parent = event.target.parentNode;
         
@@ -744,7 +744,7 @@ window.addEventListener("click", function(event) {
         wrdsModified = 1;
         smtgOpened = 1;
     };
-});
+}, false);
    </script>
 </body>
 </html>

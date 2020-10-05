@@ -246,6 +246,7 @@ button, select {
     height: 2px;
     position: absolute;
     top: 42px;
+    left: 0;
 /*    left: calc(5% / 2);*/
 }
 

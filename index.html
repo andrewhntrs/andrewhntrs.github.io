@@ -709,7 +709,7 @@ document.getElementsByClassName("word")[1].addEventListener("click", function() 
     this.previousElementSibling.classList.toggle("word_selected_prev");
 });
 
-document.querySelector("html").addEventListener("mouseup", function(event) {
+window.addEventListener("touchend", function(event) {
     //alert("mouseup");
     if (smtgOpened === 1) {
         console.log(event.target);
@@ -727,7 +727,7 @@ document.querySelector("html").addEventListener("mouseup", function(event) {
     };
 }, false);
 
-document.querySelector("html").addEventListener("click", function(event) {
+window.addEventListener("touchstart", function(event) {
     //alert("context");
     if (event.target.classList.contains("word_menu")) {
         var parent = event.target.parentNode;

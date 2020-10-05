@@ -617,6 +617,134 @@
            </div>
        </div>
    </div>
-   <script src="frontend.js" type="application/javascript"></script>
+   <script>
+var smtgOpened = 0;
+var wrdsModified = 0;
+
+function closeAll() {
+    var whatToClose = document.getElementsByClassName("opened");
+    
+    while (whatToClose.length != 0) {
+        whatToClose[0].classList.add("hidden");
+        whatToClose[0].classList.remove("opened");
+    };
+    
+    smtgOpened = 0;
+    
+    if (wrdsModified) {
+        var word_contexted = document.getElementsByClassName("word_contexted");
+        var word_contextedTransl = document.getElementsByClassName("word_contextedTransl");
+        var word_selected_prev = document.getElementsByClassName("word_selected_prev");
+        
+        while (word_contexted.length != 0) {
+            word_contexted[0].classList.remove("word_contexted");
+        };
+        
+        while (word_contextedTransl.length != 0) {
+            word_contextedTransl[0].classList.remove("word_contextedTransl");
+        };
+        
+        while (word_selected_prev.length != 0) {
+            word_selected_prev[0].classList.remove("word_selected_prev");
+        };
+        
+        wrdsModified = 0;
+    };
+};
+
+function contains(what, where) {
+    var len = where.children.length;
+    for (var i = 0; i < len; i++) {
+        if (what === where.children[i]) {
+            return true;
+        };
+        var childLen = where.children[i].children.length;
+        for (var j = 0; j < childLen; j++) {
+            if (what === where.children[i].children[j]) {
+                return true;
+            };
+            var moreLen = where.children[i].children[j].children.length;
+            for (var ii = 0; ii < moreLen; ii++) {
+                if (what === where.children[i].children[j].children[ii]) {
+                    return true;
+                };
+            };
+        };
+    };
+    return false;
+};
+
+document.querySelector(".panel_burger").addEventListener("click", function() {
+    var mainMenu = document.getElementsByClassName("mainMenu")[0];
+    closeAll(); 
+    mainMenu.classList.add("opened");
+    mainMenu.classList.remove("hidden");
+    smtgOpened = 1;
+});
+
+document.getElementById("mainMenu_close").addEventListener("click", closeAll);
+
+document.getElementById("mainMenu_add").addEventListener("click", function() {
+    var modalAdd = document.querySelector(".modalAdd");
+    closeAll(); 
+    modalAdd.classList.add("opened");
+    modalAdd.classList.remove("hidden");
+    smtgOpened = 1;
+});
+
+document.querySelector(".panelNav").addEventListener("click", function() {
+    var mainNav = document.querySelector(".mainNav");
+    closeAll();
+    mainNav.classList.add("opened");
+    mainNav.classList.remove("hidden");
+    smtgOpened = 1;
+});
+
+document.getElementById("mainNav__close").onclick = closeAll;
+
+document.getElementsByClassName("word")[1].addEventListener("click", function() {
+    this.classList.toggle("word_selected");
+    this.previousElementSibling.classList.toggle("word_selected_prev");
+});
+
+window.addEventListener("mouseup", function(event) {
+    if (smtgOpened === 1) {
+        console.log(event.target);
+        var opened = document.querySelector(".opened");
+        
+        if (!opened.classList.contains("modal")) {
+            if (event.target != opened && !contains(event.target, opened)) {
+                closeAll();
+            };
+        } else {
+            if (event.target === opened) {
+                closeAll();
+            };
+        };
+    };
+});
+
+window.addEventListener("click", function(event) {
+    if (event.target.classList.contains("word_menu")) {
+        var parent = event.target.parentNode;
+        
+        console.log(event.target);
+        
+        parent.children[3].classList.add("opened");
+        parent.children[3].classList.remove("hidden");
+        parent.children[0].classList.add("word_contexted");
+        parent.children[2].classList.add("word_contexted");
+        parent.children[1].children[0].classList.add("word_contexted");
+        parent.children[1].children[1].classList.add("word_contextedTransl");
+        
+        if (parent.previousElementSibling) {
+            parent.previousElementSibling.classList.add("word_selected_prev");
+        };
+        
+        wrdsModified = 1;
+        smtgOpened = 1;
+    };
+});
+   </script>
 </body>
 </html>

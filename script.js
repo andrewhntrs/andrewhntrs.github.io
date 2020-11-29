@@ -67,6 +67,7 @@ items.forEach(function(item, index){
 	itemsArray.push([item, parseInt(item.style.top.substring(0,item.style.top.length-2), 10)]);//save obj and top css property
 	//add event
 	item.addEventListener("touchstart", function(e){//mousedown
+		alert("q");
 		selectedItem = e.target;
 		initY = e.clientY;
 		selectedInitialTop = parseInt(e.target.style.top.substring(0,e.target.style.top.length-2), 10);//value of top css property

@@ -77,19 +77,19 @@ items.forEach(function(item, index){
 	});
 });
 
-window.addEventListener("scroll", function(){
-	if (selectedItem != null) {
-		var offset = window.scrollY - initScroll;
-		selectedItem.style.top = parseInt(selectedItem.style.top.substring(0,selectedItem.style.top.length-2), 10) + offset + "px";
-		selectedInitialTop += offset;
-		if (offset<0) {
-			swapItems(parseInt(selectedItem.id, 10), initY, 0);//check swapping
-		} else {
-			swapItems(parseInt(selectedItem.id, 10), initY, 1);//check swapping
-		};
-	};
-	initScroll = window.scrollY;
-});
+//window.addEventListener("scroll", function(){
+	//if (selectedItem != null) {
+		//var offset = window.scrollY - initScroll;
+		//selectedItem.style.top = parseInt(selectedItem.style.top.substring(0,selectedItem.style.top.length-2), 10) + offset + "px";
+		//selectedInitialTop += offset;
+		//if (offset<0) {
+		//	swapItems(parseInt(selectedItem.id, 10), initY, 0);//check swapping
+		//} else {
+		//	swapItems(parseInt(selectedItem.id, 10), initY, 1);//check swapping
+		//};
+	//};
+	//initScroll = window.scrollY;
+//});
 
 window.addEventListener("pointerup", function(e){//mouseup
 	if (selectedItem != null) {

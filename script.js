@@ -66,7 +66,7 @@ items.forEach(function(item, index){
 	item.id = index;//id asc order
 	itemsArray.push([item, parseInt(item.style.top.substring(0,item.style.top.length-2), 10)]);//save obj and top css property
 	//add event
-	item.addEventListener("pointerdown", function(e){//mousedown
+	item.addEventListener("touchstart", function(e){//mousedown
 		selectedItem = e.target;
 		initY = e.clientY;
 		selectedInitialTop = parseInt(e.target.style.top.substring(0,e.target.style.top.length-2), 10);//value of top css property
@@ -112,7 +112,7 @@ window.addEventListener("touchend", function(e){//mouseup
 	};
 });
 
-window.addEventListener("pointermove", function(e){//mousemove
+window.addEventListener("touchmove", function(e){//mousemove
 	if (selectedItem != null) {
 		var pos = e.clientY - initY + selectedInitialTop;//calc new offset
 		selectedItem.style.top = pos+"px";//rewrite top

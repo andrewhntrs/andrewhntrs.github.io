@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.btn {
+			height: 50px;
+			width: 200px;
+			background-color: rgb(119, 189, 101);
+			margin: 25px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="btn" id="testClick">testClick</div>
+	<div class="btn" id="testPointer">testPointer</div>
+	<div class="btn" id="testTouch">testTouch</div>
+	<div class="btn" id="testMouse">testMouse</div>
+
+	<script>
+		document.getElementById("testClick").addEventListener("click", function() {alert("Click")});
+		document.getElementById("testPointer").addEventListener("pointerup", function() {alert("Pointer")});
+		document.getElementById("testTouch").addEventListener("touchstart", function() {alert("Touch")});
+		document.getElementById("testMouse").addEventListener("mousedown", function() {alert("Mouse")});
+	</script>
+</body>
+</html>

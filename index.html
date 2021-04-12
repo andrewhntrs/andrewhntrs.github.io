@@ -16,15 +16,27 @@
 </head>
 <body>
 	<div class="btn" id="testClick">testClick</div>
-	<div class="btn" id="testPointer">testPointer</div>
+	<div class="btn" id="testPointerUP">testPointerUP</div>
+	<div class="btn" id="testPointerDown">testPointerDown</div>
 	<div class="btn" id="testTouch">testTouch</div>
 	<div class="btn" id="testMouse">testMouse</div>
+	<div class="btn" id="onClick">test.onClick</div>
+
+	test.onKeyDown
+	<input type="text" id="onKeyDown">
+	<br>
+	test.onKeyUp
+	<input type="text" id="onKeyUp">
 
 	<script>
 		document.getElementById("testClick").addEventListener("click", function() {alert("Click")});
-		document.getElementById("testPointer").addEventListener("pointerup", function() {alert("Pointer")});
+		document.getElementById("testPointerUP").addEventListener("pointerup", function() {alert("PointerUP")});
+		document.getElementById("testPointerDown").addEventListener("pointerdown", function() {alert("PointerDown")});
 		document.getElementById("testTouch").addEventListener("touchstart", function() {alert("Touch")});
 		document.getElementById("testMouse").addEventListener("mousedown", function() {alert("Mouse")});
+		document.getElementById("onClick").onclick = function() {alert("test.onClick")};
+		document.getElementById("onKeyDown").onkeydown = function() {alert("test.onKeyDown")};
+		document.getElementById("onKeyUp").onkeyup = function() {alert("test.onKeyUp")};
 	</script>
 </body>
 </html>

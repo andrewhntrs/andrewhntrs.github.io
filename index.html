@@ -30,6 +30,13 @@
 	<br>
 	test.onKeyUp
 	<input type="text" id="onKeyUp">
+	<br>
+	<select name="" id="testSelect">
+		<option value="1" onclick="testSelect(this)">1</option>
+		<option value="2" onclick="testSelect(this)">2qw</option>
+		<option value="3" onclick="testSelect(this)">3</option>
+		<option value="4" onclick="testSelect(this)">4qw</option>
+	</select>
 
 	<script>
 		document.getElementById("testClick").addEventListener("click", function() {alert("Click")});
@@ -40,6 +47,10 @@
 		document.getElementById("onClick").onclick = function() {alert("test.onClick")};
 		document.getElementById("onKeyDown").onkeydown = function() {alert("test.onKeyDown")};
 		document.getElementById("onKeyUp").onkeyup = function() {alert("test.onKeyUp")};
+		function testSelect(obj) {
+			alert(obj.value);
+			//console.log(obj.value);
+		}
 	</script>
 </body>
 </html>
